@@ -4,9 +4,15 @@
 * @email： Binson.Zhang@qq.com
 * @date:   2015-12-07
 */
-;(function (global, document, undefined) {
-"use strict";
-
+;(function(global, factory ) {
+	if ( typeof define === "function") {
+		define(function(){
+			return factory( global );
+		});
+	} else {
+		factory( global );
+	}
+}(typeof window !== "undefined" ? window : this, function( global ) {
 
 var boxDialog = boxDialog || {}, $ = global.jQuery
 	,version = '1.0'
@@ -766,6 +772,8 @@ function msg(title,content,icon,sec){
 */
 function alert(content,callback,w){
 	w = w ? w:'198px';
+	content = isString(content ) ? content:configs.content;
+	callback = isFunction(callback ) ? callback:configs.okCallback;
 	if (isString(content)) {
 		dialog({
 			cancel: false,
@@ -807,13 +815,6 @@ function dialog(options){
 	return instance; 
 };
 
-//模块化处理
-if(typeof define === 'function'){
-	define( function() {
-		return boxDialog;
-	});
-}
-
 
 //对外暴露
 
@@ -833,4 +834,6 @@ boxDialog = {
 
 window.boxDialog = boxDialog;
 
-}(this, document));
+return boxDialog;
+
+}));
