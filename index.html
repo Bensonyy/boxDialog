@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Boxdialog by ddbing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Boxdialog</h1>
+      <h2 class="project-tagline">一款想到即能做到的通用弹窗组件</h2>
+      <a href="https://github.com/ddbing/boxDialog" class="btn">View on GitHub</a>
+      <a href="https://github.com/ddbing/boxDialog/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/ddbing/boxDialog/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="boxdialog" class="anchor" href="#boxdialog" aria-hidden="true"><span class="octicon octicon-link"></span></a>boxDialog</h1>
+
+<p>boxDialog 是一款轻量级的弹窗通用组件，包括弹出字符串内容、自定义 DOM 结构、iframe 页面等以及快捷操作等功能，具有高度的可定制性。</p>
+
+<h3>
+<a id="1-基本使用方法" class="anchor" href="#1-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 基本使用方法：</h3>
+
+<p>调用主函数 <code>boxDialog.open()</code>, 传入相关参数.</p>
+
+<div class="highlight highlight-source-js"><pre>  <span class="pl-smi">boxDialog</span>.<span class="pl-c1">open</span>({
+      content<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>（成功）success<span class="pl-pds">'</span></span>,
+      icon<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>success<span class="pl-pds">'</span></span>    
+    });</pre></div>
+
+<h3>
+<a id="2-弹出自定义-dom-结构" class="anchor" href="#2-%E5%BC%B9%E5%87%BA%E8%87%AA%E5%AE%9A%E4%B9%89-dom-%E7%BB%93%E6%9E%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 弹出自定义 DOM 结构:</h3>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-smi">boxDialog</span>.<span class="pl-c1">open</span>({
+        content<span class="pl-k">:</span> <span class="pl-smi">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>demo_dom_content<span class="pl-pds">'</span></span>),   <span class="pl-c">// or jQuery： $('#demo_dom_content')[0]</span>
+        size<span class="pl-k">:</span>[<span class="pl-s"><span class="pl-pds">'</span>400px<span class="pl-pds">'</span></span>]
+    });</pre></div>
+
+<h5>
+<a id="注意size参数为弹窗的宽高如size400px300px只设置一个为宽度支持-px-和--两种单位" class="anchor" href="#%E6%B3%A8%E6%84%8Fsize%E5%8F%82%E6%95%B0%E4%B8%BA%E5%BC%B9%E7%AA%97%E7%9A%84%E5%AE%BD%E9%AB%98%E5%A6%82size400px300px%E5%8F%AA%E8%AE%BE%E7%BD%AE%E4%B8%80%E4%B8%AA%E4%B8%BA%E5%AE%BD%E5%BA%A6%E6%94%AF%E6%8C%81-px-%E5%92%8C--%E4%B8%A4%E7%A7%8D%E5%8D%95%E4%BD%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>注意：size参数为弹窗的宽高，如：size:['400px','300px']，只设置一个为宽度。支持 px 和 % 两种单位。</h5>
+
+<h3>
+<a id="3-弹出-iframe-页面" class="anchor" href="#3-%E5%BC%B9%E5%87%BA-iframe-%E9%A1%B5%E9%9D%A2" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 弹出 iframe 页面:</h3>
+
+<div class="highlight highlight-source-js"><pre>      <span class="pl-smi">boxDialog</span>.<span class="pl-c1">open</span>({
+        title<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>弹出了一个 iframe 嵌套页面<span class="pl-pds">'</span></span>,
+        content<span class="pl-k">:</span> {
+            iframe<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+            url<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>demo_iframe.html<span class="pl-pds">'</span></span>
+        },
+        size<span class="pl-k">:</span>[<span class="pl-s"><span class="pl-pds">'</span>400px<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>200px<span class="pl-pds">'</span></span>]
+    });</pre></div>
+
+<h3>
+<a id="4-可使用的-boxdialog-参数" class="anchor" href="#4-%E5%8F%AF%E4%BD%BF%E7%94%A8%E7%9A%84-boxdialog-%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 可使用的 boxDialog 参数：</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">//可使用的参数</span>
+configs <span class="pl-k">=</span> {
+    title<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\u</span>6d88<span class="pl-cce">\u</span>606f<span class="pl-pds">'</span></span>,             <span class="pl-c">// 标题，默认'消息'.</span>
+    content<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>欢迎使用boxDialog!<span class="pl-pds">'</span></span>,     <span class="pl-c">// 弹窗主内容.</span>
+    ok<span class="pl-k">:</span> <span class="pl-c1">true</span>,                          <span class="pl-c">// 是否显示确定按钮，默认显示.</span>
+    cancel<span class="pl-k">:</span> <span class="pl-c1">true</span>,                      <span class="pl-c">// 是否显示取消按钮，默认显示.</span>
+    okText<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\u</span>786e<span class="pl-cce">\u</span>5b9a<span class="pl-pds">'</span></span>,            <span class="pl-c">// 确定按钮文本，默认为：确定. </span>
+    cancelText<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\u</span>53d6<span class="pl-cce">\u</span>6d88<span class="pl-pds">'</span></span>,        <span class="pl-c">// 取消按钮文本, 默认为：取消.</span>
+    size<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span>auto<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>auto<span class="pl-pds">'</span></span>],             <span class="pl-c">// 内容宽，高, 默认auto.</span>
+    padding<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>20px<span class="pl-pds">'</span></span>,                   <span class="pl-c">// 内容与边界填充padding,格式css语法.</span>
+    icon<span class="pl-k">:</span> <span class="pl-c1">null</span>,                        <span class="pl-c">// 图标名称,字符串,如: icon:'success'.</span>
+    time<span class="pl-k">:</span> <span class="pl-c1">null</span>,                        <span class="pl-c">// 自动关闭时间，单位秒.</span>
+    shade<span class="pl-k">:</span> {                           <span class="pl-c">// 遮罩层默认显示，设置shade:false, 不显示遮罩.</span>
+        background<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>#000<span class="pl-pds">'</span></span>,            <span class="pl-c">// 遮罩层背景色，默认黑色.</span>
+        opacity<span class="pl-k">:</span> <span class="pl-c1">0.8</span>,                  <span class="pl-c">// 遮罩层透明度, 默认0.8.</span>
+        duration<span class="pl-k">:</span> <span class="pl-c1">200</span>                  <span class="pl-c">// 遮罩层动画速度, 单位毫秒，默认200.</span>
+    },                     
+    fixed<span class="pl-k">:</span> <span class="pl-c1">true</span>,                       <span class="pl-c">// 是否固定位置，默认true固定位置.</span>
+    zIndex<span class="pl-k">:</span> <span class="pl-c1">2010</span>,                      <span class="pl-c">// 弹窗的堆叠顺序.</span>
+    drag<span class="pl-k">:</span> <span class="pl-c1">false</span>,                       <span class="pl-c">// 拖拽开关，默认关闭.</span>
+    esc<span class="pl-k">:</span> <span class="pl-c1">true</span>,                         <span class="pl-c">// 是否支持Esc键关闭.</span>
+    position<span class="pl-k">:</span> <span class="pl-c1">null</span>,                    <span class="pl-c">// X,Y轴坐标,不设置默认居中，设置如：{left:'100px',top:'100px'}.</span>
+    closeBtn<span class="pl-k">:</span> <span class="pl-c1">true</span>,                    <span class="pl-c">// 弹窗的关闭按钮是否显示，默认显示.</span>
+    varBtns<span class="pl-k">:</span> <span class="pl-c1">null</span>,                     <span class="pl-c">// 自定义按钮, 格式如:[{text:'按钮3',className:null,callback:null},{text:'按钮4',className:null,callback:null}].</span>
+    className<span class="pl-k">:</span> <span class="pl-c1">null</span>,                   <span class="pl-c">// {string}     自定义弹窗最外层class.</span>
+    initCallback<span class="pl-k">:</span> <span class="pl-c1">null</span>,                <span class="pl-c">// {function}   初始化成功执行的回调函数.</span>
+    okCallback<span class="pl-k">:</span> <span class="pl-c1">null</span>,                  <span class="pl-c">// {function}   点击确定按钮执行的回调函数.</span>
+    cancelCallback<span class="pl-k">:</span> <span class="pl-c1">null</span>,              <span class="pl-c">// {function}   点击取消按钮执行的回调函数.</span>
+    closeCallback<span class="pl-k">:</span> <span class="pl-c1">null</span>                <span class="pl-c">// {function}   弹窗关闭执行的回调函数.</span>
+};</pre></div>
+
+<h4>
+<a id="注意以上是可设置的参数可根据自己需求灵活运用" class="anchor" href="#%E6%B3%A8%E6%84%8F%E4%BB%A5%E4%B8%8A%E6%98%AF%E5%8F%AF%E8%AE%BE%E7%BD%AE%E7%9A%84%E5%8F%82%E6%95%B0%E5%8F%AF%E6%A0%B9%E6%8D%AE%E8%87%AA%E5%B7%B1%E9%9C%80%E6%B1%82%E7%81%B5%E6%B4%BB%E8%BF%90%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>注意：以上是可设置的参数，可根据自己需求灵活运用。</h4>
+
+<h4>
+<a id="回调函数使用" class="anchor" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>回调函数使用：</h4>
+
+<p>okCallback, cancelCallback, initCallback, closeCallback 用于不同场景下的回调函数， 参数分别为点击确定按钮、点击取消按钮、弹窗初始化成功后和关闭弹窗（如：2秒后自动关闭）执行的回调函数，可以在回调函数中执行ajax等操作DOM，
+回调函数中可用 this 关键字，指向弹窗实体，可调用内部方法。</p>
+
+<h4>
+<a id="回调函数接受一个参数返回弹窗索引如" class="anchor" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E6%8E%A5%E5%8F%97%E4%B8%80%E4%B8%AA%E5%8F%82%E6%95%B0%E8%BF%94%E5%9B%9E%E5%BC%B9%E7%AA%97%E7%B4%A2%E5%BC%95%E5%A6%82" aria-hidden="true"><span class="octicon octicon-link"></span></a>回调函数接受一个参数返回弹窗索引，如：</h4>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">okCallback</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">index</span>){
+                <span class="pl-c">//index就是该弹窗索引</span>
+            }
+</pre></div>
+
+<h3>
+<a id="5-外部可用方法" class="anchor" href="#5-%E5%A4%96%E9%83%A8%E5%8F%AF%E7%94%A8%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. 外部可用方法:</h3>
+
+<div class="highlight highlight-source-js"><pre>open<span class="pl-k">:</span> dialog,
+close<span class="pl-k">:</span> close,
+closeAll<span class="pl-k">:</span> closeAll,
+msg<span class="pl-k">:</span> msg,
+alert<span class="pl-k">:</span> alert</pre></div>
+
+<h5>
+<a id="open-dialog--主方法即弹出窗口实体使用方法boxdialogopen-传入参数" class="anchor" href="#open-dialog--%E4%B8%BB%E6%96%B9%E6%B3%95%E5%8D%B3%E5%BC%B9%E5%87%BA%E7%AA%97%E5%8F%A3%E5%AE%9E%E4%BD%93%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95boxdialogopen-%E4%BC%A0%E5%85%A5%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>open: dialog  主方法，即弹出窗口实体，使用方法：boxDialog.open(), 传入参数;</h5>
+
+<h5>
+<a id="close-close--接受一个index参数关闭指定索引的弹窗使用方法boxdialogclose2-表示关闭索引为-2-的弹窗若不传参数默认关闭最上层的弹窗" class="anchor" href="#close-close--%E6%8E%A5%E5%8F%97%E4%B8%80%E4%B8%AAindex%E5%8F%82%E6%95%B0%E5%85%B3%E9%97%AD%E6%8C%87%E5%AE%9A%E7%B4%A2%E5%BC%95%E7%9A%84%E5%BC%B9%E7%AA%97%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95boxdialogclose2-%E8%A1%A8%E7%A4%BA%E5%85%B3%E9%97%AD%E7%B4%A2%E5%BC%95%E4%B8%BA-2-%E7%9A%84%E5%BC%B9%E7%AA%97%E8%8B%A5%E4%B8%8D%E4%BC%A0%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%85%B3%E9%97%AD%E6%9C%80%E4%B8%8A%E5%B1%82%E7%9A%84%E5%BC%B9%E7%AA%97" aria-hidden="true"><span class="octicon octicon-link"></span></a>close: close  接受一个index参数，关闭指定索引的弹窗，使用方法：boxDialog.close(2), 表示关闭索引为 2 的弹窗；若不传参数默认关闭最上层的弹窗;</h5>
+
+<h5>
+<a id="closeall-closeall----关闭页面中所有弹窗使用方法boxdialogcloseall" class="anchor" href="#closeall-closeall----%E5%85%B3%E9%97%AD%E9%A1%B5%E9%9D%A2%E4%B8%AD%E6%89%80%E6%9C%89%E5%BC%B9%E7%AA%97%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95boxdialogcloseall" aria-hidden="true"><span class="octicon octicon-link"></span></a>closeAll: closeAll    关闭页面中所有弹窗，使用方法：boxDialog.closeAll();</h5>
+
+<h5>
+<a id="msg-msg--弹出快捷信息提示使用方法boxdialogmsgtitlecontenticonsec-参数都可选-如boxdialogmsg-提交成功提交成功-1s-后消失success1-" class="anchor" href="#msg-msg--%E5%BC%B9%E5%87%BA%E5%BF%AB%E6%8D%B7%E4%BF%A1%E6%81%AF%E6%8F%90%E7%A4%BA%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95boxdialogmsgtitlecontenticonsec-%E5%8F%82%E6%95%B0%E9%83%BD%E5%8F%AF%E9%80%89-%E5%A6%82boxdialogmsg-%E6%8F%90%E4%BA%A4%E6%88%90%E5%8A%9F%E6%8F%90%E4%BA%A4%E6%88%90%E5%8A%9F-1s-%E5%90%8E%E6%B6%88%E5%A4%B1success1-" aria-hidden="true"><span class="octicon octicon-link"></span></a>msg: msg  弹出快捷信息提示，使用方法：boxDialog.msg(title,content,icon,sec), 参数都可选; 如：boxDialog.msg( '提交成功','提交成功 1s 后消失','success',1 );</h5>
+
+<h5>
+<a id="alert-alert-模拟原生的alert效果使用方法boxdialogalertcontentcallbackw-参数都可选-如-boxdialogalert提交成功" class="anchor" href="#alert-alert-%E6%A8%A1%E6%8B%9F%E5%8E%9F%E7%94%9F%E7%9A%84alert%E6%95%88%E6%9E%9C%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95boxdialogalertcontentcallbackw-%E5%8F%82%E6%95%B0%E9%83%BD%E5%8F%AF%E9%80%89-%E5%A6%82-boxdialogalert%E6%8F%90%E4%BA%A4%E6%88%90%E5%8A%9F" aria-hidden="true"><span class="octicon octicon-link"></span></a>alert: alert 模拟原生的alert效果，使用方法：boxDialog.alert(content,callback,w), 参数都可选; 如: boxDialog.alert('提交成功');</h5>
+
+<h3>
+<a id="6-模块化使用boxdialog-以-seajs-为例" class="anchor" href="#6-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%BD%BF%E7%94%A8boxdialog-%E4%BB%A5-seajs-%E4%B8%BA%E4%BE%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. 模块化使用boxDialog, 以 seajs 为例:</h3>
+
+<h4>
+<a id="假如调用页面是-indexhtml-包含以下代码" class="anchor" href="#%E5%81%87%E5%A6%82%E8%B0%83%E7%94%A8%E9%A1%B5%E9%9D%A2%E6%98%AF-indexhtml-%E5%8C%85%E5%90%AB%E4%BB%A5%E4%B8%8B%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>假如调用页面是 index.html, 包含以下代码：</h4>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">seajs</span>.<span class="pl-en">config</span>({
+        base<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>./js/<span class="pl-pds">'</span></span>,
+        alias<span class="pl-k">:</span> {
+          <span class="pl-s"><span class="pl-pds">'</span>jquery<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>modules/jquery-1.9.1.min<span class="pl-pds">'</span></span>,
+          <span class="pl-s"><span class="pl-pds">'</span>boxDialog<span class="pl-pds">'</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>../../lib/dist/boxDialog<span class="pl-pds">'</span></span>
+        }
+    });
+<span class="pl-smi">seajs</span>.<span class="pl-en">use</span>([<span class="pl-s"><span class="pl-pds">'</span>jquery<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>modules/main<span class="pl-pds">'</span></span>], <span class="pl-k">function</span>(<span class="pl-smi">$</span>,<span class="pl-smi">ex</span>){
+    <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>#abc<span class="pl-pds">'</span></span>).<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">'</span>click<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(){
+        <span class="pl-smi">ex</span>.<span class="pl-smi">boxDialog</span>.<span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">'</span>abc<span class="pl-pds">'</span></span>);
+    });
+});</pre></div>
+
+<h4>
+<a id="mainjs-是调用的模块-包含以下代码" class="anchor" href="#mainjs-%E6%98%AF%E8%B0%83%E7%94%A8%E7%9A%84%E6%A8%A1%E5%9D%97-%E5%8C%85%E5%90%AB%E4%BB%A5%E4%B8%8B%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>main.js 是调用的模块, 包含以下代码：</h4>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">define</span>(<span class="pl-k">function</span>(<span class="pl-smi">require</span>,<span class="pl-smi">exports</span>,<span class="pl-smi">module</span>){
+    <span class="pl-k">var</span> boxDialog <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>boxDialog<span class="pl-pds">'</span></span>);
+    <span class="pl-smi">exports</span>.<span class="pl-smi">boxDialog</span> <span class="pl-k">=</span> boxDialog;
+})</pre></div>
+
+<h4>
+<a id="以上代码可正确使用-boxdialog-弹窗组件" class="anchor" href="#%E4%BB%A5%E4%B8%8A%E4%BB%A3%E7%A0%81%E5%8F%AF%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8-boxdialog-%E5%BC%B9%E7%AA%97%E7%BB%84%E4%BB%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>以上代码可正确使用 boxDialog 弹窗组件.</h4>
+
+<h2>
+<a id="结语" class="anchor" href="#%E7%BB%93%E8%AF%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>结语：</h2>
+
+<p>boxDialog 已成功被多家公司使用以及某大型上市公司的多套系统、网站都在使用。 boxDialog 将持续更新，优化其性能和体验，谢谢关注。</p>
+
+<h2>
+<a id="release-history" class="anchor" href="#release-history" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release History</h2>
+
+<p>V1.0</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Copyright (c) 2015 xia bing, @Blog:<a href="http://ddbing.com/">http://ddbing.com/</a>. Licensed under the MIT license.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/ddbing/boxDialog">Boxdialog</a> is maintained by <a href="https://github.com/ddbing">ddbing</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("binson");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
