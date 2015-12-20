@@ -106,7 +106,7 @@ alert: alert
 seajs.config({
         base: './js/',
         alias: {
-          'jquery': 'modules/jquery-1.9.1.min',
+          'jquery': 'modules/jquery.min',
           'boxDialog':'../../lib/dist/boxDialog'
       	}
     });
