@@ -488,7 +488,7 @@ BoxClass.prototype = {
 
 	//button 单击事件处理
 	click: function(text){
-		var that = this, btns = that.btns, btnListens = that.btnListens, callback;
+		var that = this, btns = that.btns, btnListens = that.btnListens, callback, index = that.index;
 		if (!text) {
 			that.close();
 			return;
