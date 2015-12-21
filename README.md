@@ -93,11 +93,11 @@ msg: msg,
 alert: alert
 ```
 
-###### open: dialog	主方法，即弹出窗口实体，使用方法：boxDialog.open(), 传入参数;
-###### close: close	接受一个index参数，关闭指定索引的弹窗，使用方法：boxDialog.close(2), 表示关闭索引为 2 的弹窗；若不传参数默认关闭最上层的弹窗;
-###### closeAll: closeAll	关闭页面中所有弹窗，使用方法：boxDialog.closeAll();
-###### msg: msg	弹出快捷信息提示，使用方法：boxDialog.msg(title,content,icon,sec), 参数都可选; 如：boxDialog.msg( '提交成功','提交成功 1s 后消失','success',1 );
-###### alert: alert 模拟原生的alert效果，使用方法：boxDialog.alert(content,callback,w), 参数都可选; 如: boxDialog.alert('提交成功');
+##### open: dialog	主方法，即弹出窗口实体，使用方法：boxDialog.open(), 传入参数;
+##### close: close	接受一个index参数，关闭指定索引的弹窗，使用方法：boxDialog.close(2), 表示关闭索引为 2 的弹窗；若不传参数默认关闭最上层的弹窗;
+##### closeAll: closeAll	关闭页面中所有弹窗，使用方法：boxDialog.closeAll();
+##### msg: msg	弹出快捷信息提示，使用方法：boxDialog.msg(title,content,icon,sec), 参数都可选; 如：boxDialog.msg( '提交成功','提交成功 1s 后消失','success',1 );
+##### alert: alert 模拟原生的alert效果，使用方法：boxDialog.alert(content,callback,w), 参数都可选; 如: boxDialog.alert('提交成功');
 
 
 ### 6. 模块化使用boxDialog, 以 seajs 为例:
