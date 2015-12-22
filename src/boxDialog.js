@@ -707,8 +707,8 @@ function close(idx){
 		close.trigger('click');
 	}else{
 		$( '#'+Doms.wrap+ i ).remove();
-		if ( $( '#'+Doms.wrap+ (i-1) ).length ) {
-			$( '#'+Doms.wrap+ (i-1) ).remove();
+		if ( $( '#'+Doms.shade+ (i) ).length ) {
+			$( '#'+Doms.shade+ (i) ).remove();
 		}
 	}
 };
