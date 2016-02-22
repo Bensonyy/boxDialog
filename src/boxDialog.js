@@ -329,7 +329,7 @@ BoxClass.prototype = {
 		isFixed = opts.fixed ? 'fixed':'absolute';
 		wrapS.position = isFixed;
 
-		if ( isObject( pos ) ) {
+		if ( pos !== null && isObject( pos ) ) {
 			left = pos.left;
 			top = pos.top;
 			right = pos.right;
