@@ -128,6 +128,8 @@ define(function(require,exports,module){
 ## 结语：
 boxDialog 已成功被多家公司使用以及某大型上市公司的多套系统、网站都在使用。 boxDialog 将持续更新，优化其性能和体验，谢谢关注。
 
+## 官方demo演示地址：http://www.ddbing.com/box/dialog
+
 ## Release History
 V1.0
 
