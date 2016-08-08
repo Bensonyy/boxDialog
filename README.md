@@ -7,30 +7,59 @@ boxDialog 是一款轻量级的弹窗通用组件，包括弹出字符串内容�
 
 ```js
   boxDialog.open({
-	  content: '（成功）success',
-	  icon:'success'	
-  	});
+		title:'成功icon',
+		content:'提交成功',
+		shade: {
+			opacity: 0.9
+		},
+		size:['450px'],
+		button: {
+			ok: {
+				callback:function(){}
+			}
+		},
+		icon: 'success'
+	});
 ```
 
 ### 2. 弹出自定义 DOM 结构:
 
 ```js
     boxDialog.open({
-		content: document.getElementById('demo_dom_content'),   // or jQuery： $('#demo_dom_content')[0]
+		title:'自定义内容1',
+		content: document.getElementById('content1'),
 		size:['400px']
 	});
 ```
 ##### 注意：size参数为弹窗的宽高，如：size:['400px','300px']，只设置一个为宽度。支持 px 和 % 两种单位。
 
-### 3. 弹出 iframe 页面:
+### 3. 自定义 button:
 ```js
       boxDialog.open({
-		title: '弹出了一个 iframe 嵌套页面',
-		content: {
-			iframe: true,
-			url: 'demo_iframe.html'
+		title:'成功icon',
+		content:'提交成功',
+		shade: {
+			opacity: 0.9
 		},
-		size:['400px','200px']
+		size:['450px','300px'],
+		button: {
+		    ok: {
+		      text: '确定', // 按钮文本 '确定', 默认
+		      className: 'active',
+		      callback: null // {function}   点击确定按钮执行的回调函数.
+		    },
+		    cancel: {
+		      text: '取消', // 按钮文本 '取消', 默认
+		      className: null,
+		      callback: null // {function}   点击取消按钮执行的回调函数.
+		    }/*,
+		    varBtn3: {
+		      text: '按钮3', // 自定义 button
+		      className: null,
+		      callback: null
+		    }*/
+	  },
+		icon: 'success'
 	});
 ```
 
@@ -118,7 +147,7 @@ boxDialog = {
 seajs.config({
         base: './js/',
         alias: {
-          'boxDialog':'../../lib/dist/boxDialog'
+          'boxDialog':'../../lib/dist/boxDialog.min'
       	}
     });
 seajs.use(['jquery', 'modules/main'], function($,ex){
