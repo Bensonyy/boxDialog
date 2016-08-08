@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>boxDialog v1.0</title>
+<link href="../skins/default.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+/**测试demo公共样式**/
+body{ background: #fff}
+body,div,h1,h2,h3,h4,h5{margin: 0; padding: 0; font:14px/1.5 "微软雅黑","Microsoft Yahei",Arial,Helvetica,sans-serif;}
+.wp-box{ width: 600px; margin: 0 auto; padding-top: 150px; color: #fff; text-align: center;}
+.wp-box a{ color: #333; margin-bottom: 50px; display: block;}
+.hide{display: none;}
+</style>
+</head>
+<body>
+<div class="wp-box">
+	<a href="javascript:;" id="demo1">四种图标初体验</a>
+	<a href="javascript:;" id="demo2">自定义内容为DOM节点测试</a>
+</div>
+<input type="hidden" value='123' id="pinput">
+<div id="content1" class="hide">自定义内容DOM</div>
+<script src="../js/boxDialog.js"></script>
+<script type="text/javascript">
+
+function addEvent(element, type, fn) {
+	if (element.addEventListener) {
+		addEvent = function(element, type, fn){
+			element.addEventListener(type, fn, false);
+		}
+	} else {
+		if (element.attachEvent) {
+			addEvent = function(element, type, fn){
+				element.attachEvent('on' + type, fn);
+			}
+		} else {
+			addEvent = function(element, type, fn){
+				element['on' + type] = fn;
+			}
+		}
+	}
+	addEvent(element, type, fn);
+}
+
+
+//boxDialog弹窗测试
+var demo1 = document.getElementById('demo1');
+addEvent(demo1,'click',function(){
+	boxDialog.open({
+		title:'成功icon',
+		content:'提交成功',
+		shade: {
+			opacity: 0.9
+		},
+		size:['450px'],
+		button: {
+			ok: {
+				callback:okFailure
+			}
+		},
+		icon: 'success',
+		drag: true,
+		//time: 2
+	});
+});
+
+function okFailure(){
+	boxDialog.open({
+		title: '失败 icon',
+		content: '失败提示信息',
+		icon: 'failure',
+		button: {
+			ok: {
+				callback:okWarning
+			}
+		},
+		size:['350px',''],
+		cancel: false
+	});
+	return true;
+};
+
+function okWarning(){
+	boxDialog.open({
+ 	    title: '警告 icon',
+		content: '警告提示信息',
+		icon: 'warning',
+		button: {
+			ok: {
+				callback:okQuestion
+			}
+		},
+		size:['300px',''],
+		cancel: false
+	});
+};
+
+function okQuestion(){
+	boxDialog.open({
+ 	    title: '问题 icon',
+		content: '问题提示信息',
+		icon: 'question',
+		button: {
+			ok: {
+				callback:end
+			}
+		},
+		size:['250px',''],
+		ok: end,
+		cancel: false
+	});
+};
+function end(){
+	boxDialog.open({
+ 	    title: '欢迎',
+		content: '欢迎使用box.dialog，谢谢！',
+		cancel: false,
+		size:['300px','']
+	});
+};
+
+var demo2 = document.getElementById('demo2');
+addEvent(demo2,'click',function(){
+	boxDialog.open({
+		title:'自定义内容1',
+		content: document.getElementById('content1'),
+		size:['400px']
+	});
+});
+
+</script>
+</body>
+</html>

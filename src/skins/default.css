@@ -1,0 +1,103 @@
+.box-dialog .boxdialog-icon-true {
+  padding: 30px !important;
+  padding-left: 90px !important; }
+
+.box-dialog .boxdialog-close-box a.boxdialog-close:hover, .box-dialog .boxdialog-btns button.boxdialog-btn:hover {
+  opacity: 0.8;
+  -moz-opacity: 0.8;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80); }
+
+.box-dialog, .box-dialog-shade {
+  position: fixed;
+  pointer-events: auto;
+  margin: 0;
+  padding: 0; }
+
+.box-dialog {
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  font-size: 14px; }
+
+.box-dialog .boxdialog-title, .box-dialog .boxdialog-icon-true, .box-dialog .boxdialog-close-box a.boxdialog-close {
+  color: #606366; }
+
+.box-dialog .boxdialog-close a.boxdialog-close, .box-dialog .boxdialog-btns button.boxbtn {
+  transition: all 0.25s ease-in-out 0s; }
+
+.box-dialog-shade {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000; }
+
+.box-dialog .boxdialog-title {
+  border-bottom: 1px solid #c3cbd2;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 10px;
+  padding-right: 50px;
+  font-size: 16px;
+  background-color: #f4f6f7; }
+
+.box-dialog .boxdialog-close-box {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  font-size: 25px; }
+
+.box-dialog .boxdialog-close-box a.boxdialog-close {
+  text-decoration: none;
+  outline: 0 none; }
+
+.box-dialog .boxdialog-content {
+  position: relative; }
+
+.box-dialog .boxdialog-btns {
+  text-align: center;
+  padding: 0 20px 20px;
+  position: relative; }
+
+.box-dialog .boxdialog-btns button.boxdialog-btn {
+  border-radius: 2px;
+  cursor: pointer;
+  border: none;
+  background-color: #5b626b;
+  color: #fff;
+  margin: 0 10px;
+  padding: 6px 22px;
+  outline: 0 none;
+  font: inherit; }
+
+.box-dialog .boxdialog-btns button.active {
+  background-color: #26bb5c; }
+
+.box-dialog .boxhide {
+  display: none; }
+
+.box-dialog .boxdialog-icon-true .boxdialog-icon {
+  background: url(icons/icon.png) 0 0 no-repeat;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  top: 24px;
+  left: 35px; }
+
+.box-dialog .boxdialog-icon-true em.failure {
+  background-position: -41px 0; }
+
+.box-dialog .boxdialog-icon-true em.warning {
+  background-position: -82px 0; }
+
+.box-dialog .boxdialog-icon-true em.question {
+  background-position: -123px 0; }
+
+.box-dialog-loading {
+  background: transparent;
+  box-shadow: none; }
+
+.box-dialog .boxdialog-iframe {
+  display: block;
+  width: 100%; }
