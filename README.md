@@ -170,10 +170,8 @@ define(function(require,exports,module){
 ## 结语：
 boxDialog 将持续更新，优化其性能和体验，谢谢关注。
 
-## 官方demo演示地址：http://www.ddbing.com/box/dialog
-
 ## Release History
 V1.0
 
 ## License
-Copyright (c) 2015 xia bing, @Blog:http://ddbing.com/. Licensed under the MIT license.
+Copyright (c) 2015 Licensed under the MIT license.
